@@ -25,8 +25,7 @@ import { AppPreferenceHelper } from '../pages/dataManager/prefManager/appPref.he
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    DatabaseManagerHelper, ApiServiceHelper, AppPreferenceHelper, AppDataManager,
-  //  HomePageViewModel
+    DatabaseManagerHelper, ApiServiceHelper, AppPreferenceHelper, AppDataManager
   ]
 })
 export class AppModule { }
