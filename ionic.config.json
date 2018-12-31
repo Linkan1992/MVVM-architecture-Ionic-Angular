@@ -1,0 +1,7 @@
+{
+  "name": "Hire4Hotel",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
