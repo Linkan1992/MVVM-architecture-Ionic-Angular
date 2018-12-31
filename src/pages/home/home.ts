@@ -19,7 +19,7 @@ export class HomePage extends BasePage<HomePageViewModel, HomePageNavigator> imp
   }
 
   submit() : void{
-     this.getViewModel().submit();
+     this.getViewModel().submitEvent();
   }
 
   showLoader(): void {

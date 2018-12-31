@@ -1,6 +1,7 @@
 import { BasePageViewModel } from "../base/BasePageViewModel";
 import { HomePageNavigator } from './HomeNavigator';
 import { Injectable } from '@angular/core';
+import { Platform, setupPlatform } from "ionic-angular";
 
 @Injectable()
 export class HomePageViewModel extends BasePageViewModel<HomePageNavigator>{
@@ -9,30 +10,48 @@ export class HomePageViewModel extends BasePageViewModel<HomePageNavigator>{
     langAct: any;
     logIn: any;
 
-    constructor() {
+    constructor(platform: Platform) {
         super();
+        this.setPlatform(platform);
     }
 
-    public onCreate(): void {
-        console.log("onCreate method got called")
-    }
-    public onStart(): void {
-        console.log("onStart method got called")
-    }
-    public onResume(): void {
-        console.log("onResume method got called")
-    }
-    public onPause(): void {
-        console.log("onPause method got called")
-    }
-    public onStop(): void {
-        console.log("onStop method got called")
-    }
-    public onBackPressDestroy(): void {
-        console.log("onBackPressDestroy method got called")
+    // Native Divice Method Calls
+    public onDeviceResume(event: Event): void {
+        console.log("onDeviceResume method got called  ==> " + event);
     }
 
-    submit(): any {
+    public onDevicePause(event: Event): void {
+        console.log("onDevicePause method got called  ==> " + event)
+    }
+
+    // Ionic Lifecycle Method Calls
+    public onIonCreate(): void {
+        console.log("onIonCreate method got called")
+    }
+
+    public onIonStart(): void {
+        console.log("onIonStart method got called")
+    }
+
+    public onIonResume(): void {
+        console.log("onIonResume method got called")
+    }
+
+    public onIonPause(): void {
+        console.log("onIonPause method got called")
+    }
+
+    public onIonStop(): void {
+        console.log("onIonStop method got called")
+    }
+
+    public onIonDestroy(): void {
+        console.log("onIonDestroy method got called")
+    }
+
+
+    // HTML Button click event
+    submitEvent(): any {
 
         console.log("---------------------------------");
 
@@ -82,9 +101,8 @@ export class HomePageViewModel extends BasePageViewModel<HomePageNavigator>{
 
         // interface implementation with data manager local Database layer
         this.getDataManager().fetchParam();
-
-
-
     }
+
+
 
 }

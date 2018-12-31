@@ -9,7 +9,7 @@ import { HomePageViewModel } from "./HomeViewModel";
     declarations: [HomePage],
     imports: [IonicPageModule.forChild(HomePage)],
     providers: [HomePageViewModel, {provide:HomePageNavigator, useClass:HomePage}],
-    exports : [ HomePage]
+    exports : [HomePage]
 })
 
 export class HomePageModule {
