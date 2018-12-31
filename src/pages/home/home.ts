@@ -1,16 +1,16 @@
-import { Component, Injectable } from '@angular/core';
+import { Component} from '@angular/core';
 import { HomePageNavigator } from './HomeNavigator';
 import { HomePageViewModel } from './HomeViewModel';
 import { BasePage } from '../base/BasePage.component';
 import { AppDataManager } from '../dataManager/app.dataManager';
+import { IonicPage } from 'ionic-angular';
 
-
+@IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 
-@Injectable()
 export class HomePage extends BasePage<HomePageViewModel, HomePageNavigator> implements HomePageNavigator {
 
   constructor(public viewModel : HomePageViewModel, dataManager : AppDataManager) {

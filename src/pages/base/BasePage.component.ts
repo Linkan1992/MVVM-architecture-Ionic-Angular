@@ -38,7 +38,7 @@ export class BasePage<K extends BasePageViewModel<M>, M extends BasePageNavigato
 
     ionViewDidLeave() {this.getViewModel().onStop();}
 
-    ionViewUnload() {this.getViewModel().onBackPressDestroy();}
+    ionViewWillUnload() {this.getViewModel().onBackPressDestroy();}
 
 
 }

@@ -1,6 +1,6 @@
-
 import { BasePageNavigator } from './BaseNavigator';
 import { DataManager } from '../dataManager/data.manager';
+
 
 export abstract class BasePageViewModel<T extends BasePageNavigator>{
 
@@ -8,7 +8,7 @@ export abstract class BasePageViewModel<T extends BasePageNavigator>{
     private dataManager : DataManager;
 
     BasePageViewModel() {
-       
+     
     }
 
     setNavigator(navigator: T): void {

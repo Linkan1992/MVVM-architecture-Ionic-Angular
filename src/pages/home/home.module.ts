@@ -8,7 +8,7 @@ import { HomePageViewModel } from "./HomeViewModel";
 @NgModule({
     declarations: [HomePage],
     imports: [IonicPageModule.forChild(HomePage)],
-    providers: [{provide:HomePageNavigator, useClass:HomePage}, HomePageViewModel],
+    providers: [HomePageViewModel, {provide:HomePageNavigator, useClass:HomePage}],
     exports : [ HomePage]
 })
 

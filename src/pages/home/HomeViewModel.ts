@@ -1,4 +1,3 @@
-
 import { BasePageViewModel } from "../base/BasePageViewModel";
 import { HomePageNavigator } from './HomeNavigator';
 import { Injectable } from '@angular/core';
@@ -35,16 +34,27 @@ export class HomePageViewModel extends BasePageViewModel<HomePageNavigator>{
 
     submit(): any {
 
+        console.log("---------------------------------");
+
         console.log("submit not implemented.");
+
+        console.log("---------------------------------");
 
         // interface implementation with no parameter 
         this.getNavigator().responseError();
         this.getNavigator().responseSuccess();
+
+        console.log("---------------------------------");
+
         this.getNavigator().showLoader();
         this.getNavigator().hideLoader();
 
+        console.log("---------------------------------");
+
         // interface implementation with parameter 
         this.getNavigator().pageNavigate(this.version);
+
+        console.log("---------------------------------");
 
         // interface implementation with data manager preference layer
         this.getDataManager().setUsername();
@@ -59,6 +69,8 @@ export class HomePageViewModel extends BasePageViewModel<HomePageNavigator>{
         console.log("App Langauge Acttivated ==> " + this.langAct);
         console.log("App Session ==> " + this.logIn);
 
+        console.log("---------------------------------");
+
         // interface implementation with data manager Api Service layer
         this.getDataManager().login();
         this.getDataManager().getAppliedJobList();
@@ -66,6 +78,7 @@ export class HomePageViewModel extends BasePageViewModel<HomePageNavigator>{
         this.getDataManager().getCityList();
         this.getDataManager().getJobPositionList();
 
+        console.log("---------------------------------");
 
         // interface implementation with data manager local Database layer
         this.getDataManager().fetchParam();
