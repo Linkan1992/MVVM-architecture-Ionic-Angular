@@ -10,6 +10,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 export class MyApp {
 
   rootPage: any = 'HomePage';
+  private exitDialogVisible = false;
 
   constructor(public platform: Platform,
     statusBar: StatusBar,
@@ -47,6 +48,7 @@ export class MyApp {
               role: 'cancel',
               handler: () => {
                 console.log('Application exit prevented!');
+                this.exitDialogVisible = false;
               }
             }, {
               text: 'Close App',
@@ -56,7 +58,10 @@ export class MyApp {
             }]
           });
 
-          alert.present();
+          if (!this.exitDialogVisible) {
+            alert.present();
+            this.exitDialogVisible = true;
+          }
         }
       }
     });
