@@ -8,6 +8,8 @@ import { AppDataManager } from '../pages/dataManager/app.dataManager';
 import { DatabaseManagerHelper } from '../pages/dataManager/databaseManager/db.manager.helper';
 import { ApiServiceHelper } from '../pages/dataManager/apiManager/apiService.helper';
 import { AppPreferenceHelper } from '../pages/dataManager/prefManager/appPref.helper';
+import {HttpClientModule} from '@angular/common/http';
+import { Network } from '@ionic-native/network';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,7 @@ import { AppPreferenceHelper } from '../pages/dataManager/prefManager/appPref.he
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -24,6 +27,7 @@ import { AppPreferenceHelper } from '../pages/dataManager/prefManager/appPref.he
   providers: [
     StatusBar,
     SplashScreen,
+    Network,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     DatabaseManagerHelper, ApiServiceHelper, AppPreferenceHelper, AppDataManager
   ]

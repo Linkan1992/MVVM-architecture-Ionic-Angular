@@ -12,9 +12,30 @@
     If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
   </p>
 
+  <ion-buttons>
   <button ion-button button-block button-positive (click)="submit()">
     submit
   </button>
 
+  <button ion-button button-block button-positive (click)="getAllJObsAvailable()">
+    JObs Available
+  </button>
+
+</ion-buttons>
+
   Version : {{version}}
+  Network status : {{isOnline}}
+
+  <ion-list>
+  
+    <ion-item ion-item *ngFor="let product of products">
+      
+      <ion-label>name : {{ product.name }} </ion-label>
+      <ion-label>price : {{ product.price }} </ion-label>
+      <ion-label>rating : {{ product.rating }} </ion-label>
+      
+    </ion-item>
+    
+  </ion-list>
+
 </ion-content>

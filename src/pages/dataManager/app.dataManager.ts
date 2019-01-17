@@ -4,15 +4,19 @@ import { DatabaseManagerHelper } from "./databaseManager/db.manager.helper";
 import { DatabaseManager } from "./databaseManager/database.manager";
 import { ApiServiceHelper } from "./apiManager/apiService.helper";
 import { AppPreferenceHelper } from "./prefManager/appPref.helper";
+import { ApiService } from "./apiManager/api.manager";
+import { PrefManager } from "./prefManager/pref.manager";
+import { Observable } from "rxjs/Observable";
+import { Products } from "../../api.response/login.response";
 
 @Injectable()
 export class AppDataManager implements DataManager {
 
     private dbHelper: DatabaseManager;
-    private apiHelper : ApiServiceHelper;
-    private prefHelper : AppPreferenceHelper;
+    private apiHelper: ApiService;
+    private prefHelper: PrefManager;
 
-    constructor(dbHelper: DatabaseManagerHelper, apiHelper : ApiServiceHelper, prefHelper : AppPreferenceHelper) {
+    constructor(dbHelper: DatabaseManagerHelper, apiHelper: ApiServiceHelper, prefHelper: AppPreferenceHelper) {
         this.dbHelper = dbHelper;
         this.apiHelper = apiHelper;
         this.prefHelper = prefHelper;
@@ -43,26 +47,31 @@ export class AppDataManager implements DataManager {
 
 
     //--------- ApiService Methods -----------------
+    /**
+     * <P> Each methods response type must be type guarded 
+     * to check for errors at compile time</P>
+     */
 
-    login(): void {
+    login(): Observable<any> {
         console.log("login method not implemented.");
-        this.apiHelper.login();
+        return this.apiHelper.login();
     }
-    getAvailableJobList(): void {
+    
+    getAvailableJobList(): Observable<Products[]> {
         console.log("getAvailableJobList method not implemented.");
-        this.apiHelper.getAvailableJobList();
+        return this.apiHelper.getAvailableJobList();
     }
-    getCityList(): void {
+    getCityList(body?: any): Observable<any> {
         console.log("getCityList method not implemented.");
-        this.apiHelper.getCityList();
+        return this.apiHelper.getCityList();
     }
-    getJobPositionList(): void {
+    getJobPositionList(body?: any): Observable<any> {
         console.log("getJobPositionList method not implemented.");
-        this.apiHelper.getJobPositionList();
+        return this.apiHelper.getJobPositionList();
     }
-    getAppliedJobList(): void {
+    getAppliedJobList(body?: any): Observable<any> {
         console.log("getAppliedJobList method not implemented.");
-        this.apiHelper.getJobPositionList();
+        return this.apiHelper.getJobPositionList();
     }
 
     //--------- PrefManager Methods -----------------

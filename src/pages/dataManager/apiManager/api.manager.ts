@@ -1,7 +1,10 @@
+import { Observable } from "rxjs/Observable";
+import { Products } from "../../../api.response/login.response";
+
 export interface ApiService {
-    login(): void;
-    getAvailableJobList(): void;
-    getCityList(): void;
-    getJobPositionList(): void;
-    getAppliedJobList(): void;
+    login(): Observable<any>;
+    getAvailableJobList(): Observable<Products[]>;
+    getCityList(body ?: any): Observable<any>;
+    getJobPositionList(body ?: any): Observable<any>;
+    getAppliedJobList(body ?: any): Observable<any>;
 }
