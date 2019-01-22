@@ -9,7 +9,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 export class MyApp {
 
-  rootPage: any = 'HomePage';
+ // rootPage: any = 'HomePage';
+  rootPage: any = 'LogoPage';
   private exitDialogVisible = false;
 
   constructor(public platform: Platform,
@@ -21,7 +22,7 @@ export class MyApp {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      statusBar.styleDefault();
+      statusBar.backgroundColorByHexString("#2E3840");
       splashScreen.hide();
 
       this.onBackPressed();
@@ -35,7 +36,7 @@ export class MyApp {
       let nav = this.app.getActiveNavs()[0];
       let activeView = nav.getActive();
 
-      if (activeView.name === "HomePage") {
+      if (activeView.name === "HomePage" || activeView.name === "LogoPage") {
 
         if (nav.canGoBack()) { //Can we go back?
           nav.pop();

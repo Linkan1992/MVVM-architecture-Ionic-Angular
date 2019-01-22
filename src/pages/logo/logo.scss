@@ -1,0 +1,26 @@
+page-logo {
+
+    .content{
+        background-image: url('../assets/imgs/content_background.png');
+        -webkit-background-image: url('../assets/imgs/content_background.png');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        width: 100%;
+        //background-color: map-get($map: $colors, $key: danger);
+    }
+
+    .align-bottom-fix{
+      //  vertical-align: bottom;
+        margin-top: 100%;
+    }
+
+    .button{
+        height: 45px;
+        color: map-get($map: $colors, $key: white);
+        font-style: italic;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+}

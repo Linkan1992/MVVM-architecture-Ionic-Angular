@@ -51,6 +51,7 @@ export class HomePageViewModel extends BasePageViewModel<HomePageNavigator>{
 
     public onIonPause(): void {
         console.log("onIonPause method got called")
+        this.weakRef.delete(navigator);
     }
 
     public onIonStop(): void {

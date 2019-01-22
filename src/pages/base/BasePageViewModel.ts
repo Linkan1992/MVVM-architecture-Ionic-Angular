@@ -22,12 +22,14 @@ export abstract class BasePageViewModel<T extends BasePageNavigator>{
     private loadingCtrl: LoadingController;
     private alertCtrl: AlertController;
     private loading : Loading;
+    protected weakRef : any;
 
     public BasePageViewModel() {
-
+        this.weakRef = new WeakMap();
     }
 
     setNavigator(navigator: T): void {
+        this.weakRef.set(navigator, navigator);
         this.navigator = navigator;
     }
 
@@ -90,7 +92,8 @@ export abstract class BasePageViewModel<T extends BasePageNavigator>{
             console.log("disconnectionObservable  ==> " + this.isOnline);
         }).pipe(mapTo(this.isOnline))
             .merge(this.network.onDisconnect().pipe(mapTo(false)))
-            .merge(this.network.onConnect().pipe(mapTo(true))).share()
+            .merge(this.network.onConnect().pipe(mapTo(true)))
+            .share()
             .subscribe((status: boolean) => {
                 this.ngZone.run(() => {
                     this.isOnline = status;
